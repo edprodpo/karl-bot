@@ -1,0 +1,13 @@
+services:
+  karl-vk-bot:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: karl-vk-bot
+    ports: 
+      - "${GENERAL_PORT}:${GENERAL_PORT}"
+    command: "python -m setup"
+    env_file:
+      - ../.env
+    volumes:
+      - ../logs.log:/app/logs.log
